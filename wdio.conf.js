@@ -30,7 +30,7 @@ export const config = {
     //
     specs: [
         // ToDo: define location for spec files here
-        './test/specs/android-native*.js'
+        './test/specs/android/delete-note-screenobject-test*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -66,7 +66,9 @@ export const config = {
         'appium:deviceName': 'emulator-5556',
         'appium:automationName': 'UiAutomator2',
         //use a package to join the path from the apk
-        'appium:app': path.join(process.cwd(),'app\\android\\ApiDemos-debug.apk')
+        'appium:app': path.join(process.cwd(),'app\\android\\ColorNote+Notepad.apk'),
+        //grant to the app all permissions
+        "appium:autoGrantPermissions": true,
         
     }],
 
@@ -117,7 +119,11 @@ export const config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['appium'],
+    services: [
+        ['appium', {
+          command: 'appium'
+        }]
+      ],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

@@ -90,7 +90,7 @@ describe('Android Elements Tests', ()=> {
 
     });
 
-    it.only('write in a text field - other way', async () => {
+    it('write in a text field - other way', async () => {
         
         await $('~Views').click();
         await $('~Auto Complete').click();
